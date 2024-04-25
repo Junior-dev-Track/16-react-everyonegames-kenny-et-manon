@@ -1,0 +1,26 @@
+.game-image {
+    gap: 20px;
+    /*width: 75px;  !* adjust as needed *!*/
+    height: 300px;  /* adjust as needed */
+    object-fit: cover;  /* this will ensure that your images cover the whole area of the div without distorting the aspect ratio */
+}
+
+.games-container {
+    display: flex;
+    gap: 20px;
+    /*justify-content: center;*/
+    margin-top: 20px;
+    margin-right: 10px;  /* adjust as needed */
+    margin-left: 10px;  /* adjust as needed */
+
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    width: 50%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 10px;  /* adjust as needed */
+    margin-left: 10px;  /* adjust as needed */
+}

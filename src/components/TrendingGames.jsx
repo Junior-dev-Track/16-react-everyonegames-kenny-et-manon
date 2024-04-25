@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import Buttons from "./Buttons";
 
 const TrendingGames = () => {
@@ -11,4 +12,14 @@ const TrendingGames = () => {
     </div>;
   };
 
-export default TrendingGames
+import GameCarousel from './GameCarousel';
+
+const TrendingGames = () => {
+    return (
+        <div>
+            <GameCarousel />
+        </div>
+    );
+};
+
+export default TrendingGames;
