@@ -52,6 +52,7 @@ ul, ol {
 .Buttons {
     display: flex;
     gap: 20px;
+    padding-right: 100px;
 }
 
 .Buttons select {
@@ -67,6 +68,24 @@ ul, ol {
 
 .Buttons p {
     text-transform: uppercase;
-    font-weight: 300;
+    font-weight: 700px;
 }
+
+
+/* Trending */
+
+.trending .haut {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.trending h2 {
+    font-size: 75px;
+    font-weight: 300;
+    padding-left: 75px;
+    color: #131130;
+}
+
+
 
