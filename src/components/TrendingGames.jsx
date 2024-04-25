@@ -1,4 +1,4 @@
-import Buttons from "./Buttons";
+import Buttons from "./Buttons"
 
 const TrendingGames = () => {
     return <div className="trending">
@@ -11,4 +11,6 @@ const TrendingGames = () => {
     </div>;
   };
 
-export default TrendingGames
+
+
+export default TrendingGames;
