@@ -11,7 +11,7 @@ const Buttons = () => {
       </div>
 
       <div>
-        <p>Filter by</p>
+        <p>Platform</p>
         <select className="platformSelect">
           <option value="all">All platforms</option>
           </select>
