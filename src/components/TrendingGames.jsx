@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-import Buttons from "./Buttons";
+import Buttons from "./Buttons"
 
 const TrendingGames = () => {
     return <div className="trending">
@@ -12,14 +11,6 @@ const TrendingGames = () => {
     </div>;
   };
 
-import GameCarousel from './GameCarousel';
 
-const TrendingGames = () => {
-    return (
-        <div>
-            <GameCarousel />
-        </div>
-    );
-};
 
 export default TrendingGames;
