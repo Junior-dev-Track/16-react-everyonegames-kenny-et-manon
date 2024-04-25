@@ -1,3 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #131130;
+    color: white;
+    align-items: center;
+    height: 100px;
+}
+
+.header ul {
+    display: flex;
+    gap: 40px;
+    padding-left: 75px;
+}
+
+.header ul li {
+    font-size: 25px;
+    font-weight: 200px;
+    text-transform: uppercase;
+}
+
+.header input {
+    width: 260px;
+    font-size: 1.05rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #F4F5FB;
+    border: 1px solid #caced1;
+    border-radius: 30px;
+    color: #000;
+    cursor: pointer;
+}
+
+.header .searchbar {
+    padding-right: 100px;
+}
+
+
 /* Buttons */
 
 .Buttons {
