@@ -7,12 +7,11 @@
 
 .games-container {
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    /*justify-content: center;*/
     margin-top: 20px;
-    margin-right: 10px;  /* adjust as needed */
-    margin-left: 10px;  /* adjust as needed */
-
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .carousel-container {

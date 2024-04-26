@@ -11,6 +11,4 @@ const TrendingGames = () => {
     </div>;
   };
 
-
-
 export default TrendingGames;
