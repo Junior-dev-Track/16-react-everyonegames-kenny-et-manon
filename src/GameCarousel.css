@@ -1,14 +1,13 @@
 .game-image {
     gap: 20px;
-    /*width: 75px;  !* adjust as needed *!*/
-    height: 300px;  /* adjust as needed */
-    object-fit: cover;  /* this will ensure that your images cover the whole area of the div without distorting the aspect ratio */
+    height: 300px; 
+    object-fit: cover;  
 }
 
 .games-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
     margin-top: 20px;
     margin-right: 10px;
     margin-left: 10px;
@@ -16,10 +15,26 @@
 
 .carousel-container {
     display: flex;
+    gap: 100px;
+    width: 75%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.game-image.centered {
+    transform: scale(1.2);
     gap: 20px;
-    width: 50%;
-    justify-content: center;
+}
+
+
+.legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
     margin-top: 20px;
+feat/allgames
     margin-right: 10px;  /* adjust as needed */
     margin-left: 10px;  /* adjust as needed */
 }
+

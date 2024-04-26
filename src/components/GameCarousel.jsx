@@ -27,8 +27,8 @@ const GameCarousel = () => {
 }, []);
 
     return (
-        <div className="carousel-container" style={{ display: 'flex', justifyContent: 'center' }}>
-            <Carousel
+    <div className="carousel-container">
+    <Carousel
     key={games.length} // Add this line
     showThumbs={false}
     showIndicators={false}
@@ -41,6 +41,7 @@ const GameCarousel = () => {
     transitionTime={500}
     onChange={setCenteredGameIndex} // Update centeredGameIndex when the centered slide changes
 >
+
     {games.filter(game => game.name.toLowerCase() !== 'soulcalibur (1998)').map((game) => (
     <div className="games-container" key={game.id}>
         <img className="game-image" src={game.background_image} alt={game.name} />
@@ -54,6 +55,7 @@ const GameCarousel = () => {
     </div>
 ))}
 </Carousel>
+
         </div>
     );
 };
