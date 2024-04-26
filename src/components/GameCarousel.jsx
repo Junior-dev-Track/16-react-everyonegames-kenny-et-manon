@@ -41,23 +41,21 @@ const GameCarousel = () => {
     transitionTime={500}
     onChange={setCenteredGameIndex} // Update centeredGameIndex when the centered slide changes
 >
-                {games.filter(game => game.name.toLowerCase() !== 'soulcalibur (1998)').map((game, index) => (
-                    <div className="games-container" key={game.id}>
-                        <img
-                            className={`game-image ${index === centeredGameIndex ? 'centered' : ''}`}
-                            src={game.background_image}
-                            alt={game.name}
-                        />
-                        {/* <div>
-                            {game.platformNames.map(platformName => (
-                            <p key={platformName}>{platformName}</p>
-                            ))}
-                        </div> */}
-                        <p className="legend">{game.name}</p> 
-                        <p>{game.description}</p>
-                    </div>
-                ))}
-                </Carousel>
+
+    {games.filter(game => game.name.toLowerCase() !== 'soulcalibur (1998)').map((game) => (
+    <div className="games-container" key={game.id}>
+        <img className="game-image" src={game.background_image} alt={game.name} />
+        <div>
+            {game.platformNames.map(platformName => (
+                <p key={platformName}>{platformName}</p>
+            ))}
+        </div>
+        <p className="legend">{game.name}</p>
+        <p>{game.description}</p>
+    </div>
+))}
+</Carousel>
+
         </div>
     );
 };
