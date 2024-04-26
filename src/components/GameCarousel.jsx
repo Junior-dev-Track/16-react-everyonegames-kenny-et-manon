@@ -15,7 +15,7 @@ const GameCarousel = () => {
         const allGames = response.data.results;
 
         // Map over the games and add a new property, platformNames, which is an array of platform names
-        const topRatedGames = allGames.slice(0, 8).map(game => ({
+        const topRatedGames = allGames.slice(0, 9).map(game => ({
             ...game,
             platformNames: game.platforms.map(platform => platform.platform.name),
         }));
@@ -41,7 +41,7 @@ const GameCarousel = () => {
     transitionTime={500}
     onChange={setCenteredGameIndex} // Update centeredGameIndex when the centered slide changes
 >
-    {games.map((game, index) => (
+    {games.filter(game => game.name.toLowerCase() !== 'soulcalibur (1998)').map((game) => (
     <div className="games-container" key={game.id}>
         <img className="game-image" src={game.background_image} alt={game.name} />
         <div>
