@@ -15,7 +15,7 @@ const GameCarousel = () => {
         const allGames = response.data.results;
 
         // Map over the games and add a new property, platformNames, which is an array of platform names
-        const topRatedGames = allGames.slice(0, 8).map(game => ({
+        const topRatedGames = allGames.slice(0, 9).map(game => ({
             ...game,
             platformNames: game.platforms.map(platform => platform.platform.name),
         }));
@@ -27,8 +27,8 @@ const GameCarousel = () => {
 }, []);
 
     return (
-        <div className="carousel-container" style={{ display: 'flex', justifyContent: 'center' }}>
-            <Carousel
+    <div className="carousel-container">
+    <Carousel
     key={games.length} // Add this line
     showThumbs={false}
     showIndicators={false}
@@ -41,19 +41,23 @@ const GameCarousel = () => {
     transitionTime={500}
     onChange={setCenteredGameIndex} // Update centeredGameIndex when the centered slide changes
 >
-    {games.map((game, index) => (
-    <div className="games-container" key={game.id}>
-        <img className="game-image" src={game.background_image} alt={game.name} />
-        <div>
-            {game.platformNames.map(platformName => (
-                <p key={platformName}>{platformName}</p>
-            ))}
-        </div>
-        <p className="legend">{game.name}</p>
-        <p>{game.description}</p>
-    </div>
-))}
-</Carousel>
+                {games.filter(game => game.name.toLowerCase() !== 'soulcalibur (1998)').map((game, index) => (
+                    <div className="games-container" key={game.id}>
+                        <img
+                            className={`game-image ${index === centeredGameIndex ? 'centered' : ''}`}
+                            src={game.background_image}
+                            alt={game.name}
+                        />
+                        {/* <div>
+                            {game.platformNames.map(platformName => (
+                            <p key={platformName}>{platformName}</p>
+                            ))}
+                        </div> */}
+                        <p className="legend">{game.name}</p> 
+                        <p>{game.description}</p>
+                    </div>
+                ))}
+                </Carousel>
         </div>
     );
 };
