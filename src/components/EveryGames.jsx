@@ -1,11 +1,10 @@
 import Buttons from "./Buttons"
 
-const EveryGames = () => {
+const EveryGames = ({ setSelectedOption }) => {
     return (<div className="every">
-
       <div className="haut">
       <h2>All Games</h2>
-      <Buttons />
+      <Buttons setSelectedOption={setSelectedOption}/>
       </div>
         
     </div>);
