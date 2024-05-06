@@ -1,21 +1,19 @@
-
-
-
-  const Buttons = ({ setSelectedOption }) => {
+// Buttons.jsx
+const Buttons = ({ setSelectedOption }) => {
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value)
   }
 
-    return (
-      <div className="Buttons">
-        <div>
-          <p>Filter by</p>
-          <select className="filterSelect" onChange={(e) => handleChange(e)}>
-            <option value="dateAdded">Date added</option>
-            <option value="name">Name</option>
-            <option value="releaseDate">Release date</option>
-          </select>
+  return (
+    <div className="Buttons">
+      <div>
+        <p>Filter by</p>
+        <select className="filterSelect" onChange={handleChange}>
+          <option value="dateAdded">Date added</option>
+          <option value="name">Name</option>
+          <option value="releaseDate">Release date</option>
+        </select>
       </div>
 
       <div>
@@ -24,9 +22,10 @@
           <option value="xbox">Xbox</option>
           <option value="playstation">Playstation</option>
           <option value="pc">PC</option>
-          </select>
+        </select>
       </div>
     </div>
-  )};
+  );
+};
 
 export default Buttons
