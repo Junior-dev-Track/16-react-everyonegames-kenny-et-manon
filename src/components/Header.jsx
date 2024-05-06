@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 
+
+// logique pour la recherche
+
 const Header = () => {
     return <div className="header">
       <div>
         <nav>
           <ul>
-            <li>Home</li>
-            <Link to="/games">Games</Link>
+            <Link className='links' to="/">Home</Link>
+            <Link className='links' to="/games">Games</Link>
           </ul>
         </nav>
       </div>

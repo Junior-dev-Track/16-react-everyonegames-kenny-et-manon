@@ -14,18 +14,20 @@ ul, ol {
     display: flex;
     justify-content: space-between;
     background-color: #131130;
-    color: white;
     align-items: center;
     height: 100px;
 }
 
 .header ul {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     padding-left: 75px;
+
 }
 
-.header ul li {
+.header ul .links {
+    color: white;
+    text-decoration: none;
     font-size: 25px;
     font-weight: 200px;
     text-transform: uppercase;
@@ -87,9 +89,18 @@ ul, ol {
     color: #131130;
 }
 
-.game-image {
-    width: 200px;  /* adjust as needed */
-    height: auto;  /* maintain aspect ratio */
+
+.every .haut {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.every h2 {
+    font-size: 75px;
+    font-weight: 300;
+    padding-left: 75px;
+    color: #131130;
 }
 
 

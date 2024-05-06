@@ -53,10 +53,10 @@ const GameCarousel = () => {
         <p className="legend">{game.name}</p>
         <p>{game.description}</p>
     </div>
-))}
-</Carousel>
+    ))}
+    </Carousel>
 
-        </div>
+    </div>
     );
 };
 

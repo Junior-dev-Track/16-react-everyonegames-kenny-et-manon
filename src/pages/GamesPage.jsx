@@ -1,13 +1,14 @@
 import Header from "../components/Header.jsx";
-import AllGames from "../components/AllGames.jsx";
-import Buttons from "../components/Buttons.jsx";
+import EveryGames from "../components/EveryGames.jsx";
+import AllGames from "../components/AllGames.jsx"
+
 
 
 const GamesPage = () => {
     return <div>
-      <Header />
-      <AllGames />
-      <Buttons />
+    <Header />
+    <EveryGames />
+    <AllGames />
     </div>;
   }
   
