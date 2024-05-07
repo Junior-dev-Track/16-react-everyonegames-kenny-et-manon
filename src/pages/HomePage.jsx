@@ -6,20 +6,14 @@ import GameCarousel from '../components/GameCarousel.jsx';
 import AllGames from '../components/AllGames.jsx';
 
 const HomePage = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const [homeClicked, setHomeClicked] = useState(false);
-
-  const handleHomeClick = () => {
-    setHomeClicked(!homeClicked);
-  };
+  const [selectedOption, setSelectedOption] = useState('trending');
 
   return (
     <div>
-      <Header handleHomeClick={handleHomeClick} />
+      <Header setSelectedOption={setSelectedOption} />
       <TrendingGames setSelectedOption={setSelectedOption} selectedOption={selectedOption} />
-      {!selectedOption && <GameCarousel />}
-      {selectedOption && <AllGames selectedOption={selectedOption} />}
-      {homeClicked && <div>Home content</div>}
+      {selectedOption === 'trending' && <GameCarousel />}
+      {selectedOption !== 'trending' && <AllGames selectedOption={selectedOption} />}
     </div>
   );
 }

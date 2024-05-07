@@ -1,8 +1,13 @@
+// Header.jsx
 import { Link } from 'react-router-dom';
 
 const Header = ({ setSelectedOption }) => {
   const handleHomeClick = () => {
-    setSelectedOption('');
+    setSelectedOption('trending');
+  };
+
+  const handleGamesClick = () => {
+    setSelectedOption('All');
   };
 
   return (
@@ -11,7 +16,7 @@ const Header = ({ setSelectedOption }) => {
           <nav>
             <ul>
               <Link className='links' to="/" onClick={handleHomeClick}>Home</Link>
-              <Link className='links' to="/" onClick={() => setSelectedOption('all')}>Games</Link>
+              <Link className='links' to="/" onClick={handleGamesClick}>Games</Link>
             </ul>
           </nav>
         </div>

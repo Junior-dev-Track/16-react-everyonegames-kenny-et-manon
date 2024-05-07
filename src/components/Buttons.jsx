@@ -10,7 +10,7 @@ const Buttons = ({ setSelectedOption }) => {
       <div>
         <p>Filter by</p>
           <select className="filterSelect" onChange={handleChange}>
-              <option value="all">...</option>
+              <option value="trending">...</option>
 
               <option value="all">All</option>
 

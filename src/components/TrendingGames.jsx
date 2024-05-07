@@ -5,7 +5,7 @@ const TrendingGames = ({ setSelectedOption, selectedOption }) => {
     return (
       <div className="trending">
         <div className="haut">
-          <h2>{selectedOption ? 'All Games' : 'Trending Games'}</h2>
+          <h2>{selectedOption === 'trending' ? 'Trending Games' : 'All Games'}</h2>
           <Buttons setSelectedOption={setSelectedOption} />
         </div>
       </div>
