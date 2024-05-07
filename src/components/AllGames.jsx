@@ -7,11 +7,6 @@ const AllGames = ({ selectedOption }) => {
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false); // New state variable
 
-    const isLatinText = (text) => {
-        const latinCharRegex = /^[A-Za-z].*$/;
-        return latinCharRegex.test(text);
-    };
-
     const handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
         setPage(prevPage => prevPage + 1);
@@ -38,27 +33,18 @@ const AllGames = ({ selectedOption }) => {
                     ordering = 'name';
                     break;
                 default:
-                    ordering = 'name';
+                    ordering = '';
             }
 
             try {
-                const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=39f531e8bfe4449383ae0f9bb9fdfb42`);
+                const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
 
                 let newGames = response.data.results;
-
-                // Filter out games whose names are not written in the Latin alphabet
-                newGames = newGames.filter(game => isLatinText(game.name));
 
                 // Filter out games without a background image
                 newGames = newGames.filter(game => game.background_image);
 
-                // Create a Set to store the keys of the games that have already been seen
-                const seenKeys = new Set(games.map(game => game.key));
-
-                // Filter out games with the same key
-                newGames = newGames.filter(game => !seenKeys.has(game.key));
-
-                // Add the new games to the existing games
+                // Append the new games to the existing games
                 setGames(prevGames => [...prevGames, ...newGames]);
             } catch (error) {
                 console.error('Error fetching games:', error);
@@ -70,10 +56,14 @@ const AllGames = ({ selectedOption }) => {
         fetchGames();
     }, [page, selectedOption]);
 
+    useEffect(() => {
+    setPage(1);
+}, [selectedOption]);
+
     return (
         <div>
             {isLoading ? (
-                <div>Loading...</div> // Render a loading circle here
+                <div>Loading...</div> // Render a loading message here
             ) : (
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {games.map((game) => (

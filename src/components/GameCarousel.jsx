@@ -11,7 +11,7 @@ const GameCarousel = () => {
 
     useEffect(() => {
         const fetchGames = async () => {
-            const response = await axios.get(`https://api.rawg.io/api/games?ordering=-metacritic&page=1&key=39f531e8bfe4449383ae0f9bb9fdfb42`);
+            const response = await axios.get(`https://api.rawg.io/api/games?ordering=-metacritic&page=1&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
             const allGames = response.data.results;
 
             // Map over the games and add a new property, platformNames, which is an array of platform names

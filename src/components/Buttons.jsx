@@ -10,6 +10,7 @@ const Buttons = ({ setSelectedOption }) => {
       <div>
         <p>Filter by</p>
         <select className="filterSelect" onChange={handleChange}>
+            <option value="">All</option>
           <option value="name">Name</option>
           <option value="dateAdded">Date added</option>
           <option value="releaseDate">Release date</option>
