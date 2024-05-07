@@ -103,4 +103,9 @@ ul, ol {
     color: #131130;
 }
 
+.loading {
+    padding-left: 75px;
+    font-size: 30px;
+}
+
 

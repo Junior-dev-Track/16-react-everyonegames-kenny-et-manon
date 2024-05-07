@@ -39,7 +39,7 @@ const AllGames = ({ selectedOption }) => {
         }
 
         try {
-            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
+            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=10&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
 
             let newGames = response.data.results;
 
@@ -61,20 +61,25 @@ const AllGames = ({ selectedOption }) => {
     fetchGames();
 }, [page, selectedOption]);
 
- useEffect(() => {
-    setPage(1);
-    setGames([]); // Clear the games state
-}, [selectedOption]);
+ const [prevSelectedOption, setPrevSelectedOption] = useState(selectedOption);
+
+useEffect(() => {
+    if (prevSelectedOption !== selectedOption) {
+        setPage(1);
+        setGames([]); // Clear the games state
+        setPrevSelectedOption(selectedOption);
+    }
+}, [selectedOption, prevSelectedOption]);
 
     return (
         <div>
             {isLoading ? (
-                <div>Loading...</div> // Render a loading message here
+                <div className='loading'>Loading...</div> // Render a loading message here
             ) : (
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+                <div className='wrap'>
                     {games.map((game) => (
                         game.background_image && (
-                            <div key={game.id} style={{ flexBasis: '20%', margin: '10px', border: '1px solid #ddd', borderRadius: '5px', padding: '10px', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.15)' }}>
+                            <div key={game.id} className='contenu'>
                                 <img src={game.background_image} alt={game.name} style={{ width: '100%', height: 'auto' }} />
                                 <p>{game.name}</p>
                             </div>

@@ -1,2 +1,15 @@
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 
+.contenu {
+    flex-basis: 20%;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
