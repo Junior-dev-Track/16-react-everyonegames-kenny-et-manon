@@ -7,12 +7,13 @@ import { useState } from 'react';
 const GamesPage = () => {
     const [selectedOption, setSelectedOption] = useState('');
 
-    return <div>
-    <Header />
-    <EveryGames setSelectedOption={setSelectedOption}/>
-    <AllGames selectedOption={selectedOption}/>
-    </div>;
+    return (
+        <div>
+            <Header />
+            <EveryGames setSelectedOption={setSelectedOption} selectedOption={selectedOption}/>
+            <AllGames selectedOption={selectedOption}/>
+        </div>
+    );
 }
 
-export default GamesPage
-  
+export default GamesPage;

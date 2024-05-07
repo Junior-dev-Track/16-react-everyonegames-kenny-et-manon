@@ -5,7 +5,7 @@ const TrendingGames = () => {
 
       <div className="haut">
       <h2>Trending Games</h2>
-      <Buttons />
+          <Buttons setSelectedOption={() => {}} />
       </div>
         
     </div>;
