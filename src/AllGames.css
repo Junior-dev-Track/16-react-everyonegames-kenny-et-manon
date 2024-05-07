@@ -4,12 +4,24 @@
     justify-content: center;
 }
 
-
 .contenu {
-    flex-basis: 20%;
-    margin: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
+    margin: 15px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    height: 250px;
+    width: 300px;
+}
+
+.images {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    justify-content: center;
+}
+
+p {
+    font-size: 15px;
+    margin-left: 15px;
 }

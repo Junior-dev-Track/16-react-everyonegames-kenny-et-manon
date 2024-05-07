@@ -1,8 +1,6 @@
 import Buttons from "./Buttons"
 
-const EveryGames = ({ setSelectedOption, selectedOption }) => {
-
-
+const EveryGames = ({ setSelectedOption }) => {
     return (
         <div className="every">
             <div className="haut">

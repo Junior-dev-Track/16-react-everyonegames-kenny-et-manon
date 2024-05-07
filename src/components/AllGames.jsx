@@ -80,7 +80,7 @@ useEffect(() => {
                     {games.map((game) => (
                         game.background_image && (
                             <div key={game.id} className='contenu'>
-                                <img src={game.background_image} alt={game.name} style={{ width: '100%', height: 'auto' }} />
+                                <img src={game.background_image} alt={game.name} className='images'  />
                                 <p>{game.name}</p>
                             </div>
                         )
