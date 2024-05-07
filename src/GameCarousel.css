@@ -1,39 +1,85 @@
-.game-image {
-    gap: 20px;
-    height: 300px; 
-    object-fit: cover;  
-}
-
-.games-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
 .carousel-container {
     display: flex;
-    gap: 100px;
     width: 75%;
     margin: auto;
     margin-top: 100px;
 }
 
+.slide .games-container {
+    transition: 200ms transform ease;
+}
+
+.slide:not(.selected) .games-container {
+    transform: scale(0.8);
+}
+
+.slider-wrapper {
+    height: 360px !important;
+}
+
+.games-container {
+    display: flex;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
 .game-image.centered {
     transform: scale(1.2);
-    gap: 20px;
 }
 
+.game-image {
+    height: 300px;
+    object-fit: cover;
+}
 
-.legend {
+.game-content-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.game-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.game-content-header {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 15px;
+}
+
+.game-content-header p {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: solid 1px white;
+    border-radius: 15 est minuscle;
+    border-radius: 10px;
+    padding: 4px 6px;
+}
+
+.game-content-footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+}
+
+.game-content-name {
     font-size: 20px;
     font-weight: bold;
-    color: black;
+    color: rgb(255, 255, 255);
     text-align: center;
-    margin-top: 20px;
-    margin-right: 10px;  /* adjust as needed */
-    margin-left: 10px;  /* adjust as needed */
 }
-
