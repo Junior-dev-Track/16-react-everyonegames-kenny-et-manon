@@ -18,46 +18,52 @@ const AllGames = ({ selectedOption }) => {
     }, []);
 
     useEffect(() => {
-        const fetchGames = async () => {
-            setIsLoading(true); // Set isLoading to true before fetching data
+    const displayedGameIds = new Set(); // Create a new Set to store the ids of displayed games
 
-            let ordering;
-            switch (selectedOption) {
-                case 'dateAdded':
-                    ordering = 'added';
-                    break;
-                case 'releaseDate':
-                    ordering = 'released';
-                    break;
-                case 'name':
-                    ordering = 'name';
-                    break;
-                default:
-                    ordering = '';
-            }
+    const fetchGames = async () => {
+        setIsLoading(true); // Set isLoading to true before fetching data
 
-            try {
-                const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
+        let ordering;
+        switch (selectedOption) {
+            case 'dateAdded':
+                ordering = 'added';
+                break;
+            case 'releaseDate':
+                ordering = 'released';
+                break;
+            case 'name':
+                ordering = 'name';
+                break;
+            case '':
+                ordering = '';
+        }
 
-                let newGames = response.data.results;
+        try {
+            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
 
-                // Filter out games without a background image
-                newGames = newGames.filter(game => game.background_image);
+            let newGames = response.data.results;
 
-                // Append the new games to the existing games
-                setGames(prevGames => [...prevGames, ...newGames]);
-            } catch (error) {
-                console.error('Error fetching games:', error);
-            }
+            // Filter out games without a background image and games that have already been displayed
+            newGames = newGames.filter(game => game.background_image && !displayedGameIds.has(game.id));
 
-            setIsLoading(false); // Set isLoading to false after fetching data
-        };
+            // Add the ids of the new games to the Set
+            newGames.forEach(game => displayedGameIds.add(game.id));
 
-        fetchGames();
-    }, [page, selectedOption]);
+            // Append the new games to the existing games
+            setGames(prevGames => [...prevGames, ...newGames]);
+        } catch (error) {
+            console.error('Error fetching games:', error);
+        }
 
-    useEffect(() => {
+        setIsLoading(false); // Set isLoading to false after fetching data
+    };
+
+    fetchGames();
+}, [page, selectedOption]);
+
+ useEffect(() => {
     setPage(1);
+    setGames([]); // Clear the games state
 }, [selectedOption]);
 
     return (

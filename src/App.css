@@ -20,7 +20,7 @@ ul, ol {
 
 .header ul {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     padding-left: 75px;
 
 }
@@ -28,7 +28,7 @@ ul, ol {
 .header ul .links {
     color: white;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 200px;
     text-transform: uppercase;
 }
