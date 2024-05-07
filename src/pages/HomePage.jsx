@@ -15,7 +15,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header handleHomeClick={handleHomeClick} setSelectedOption={setSelectedOption} />
+      <Header handleHomeClick={handleHomeClick} />
       <TrendingGames setSelectedOption={setSelectedOption} selectedOption={selectedOption} />
       {!selectedOption && <GameCarousel />}
       {selectedOption && <AllGames selectedOption={selectedOption} />}

@@ -42,10 +42,27 @@ ul, ol {
     border-radius: 30px;
     color: #000;
     cursor: pointer;
+    padding: 10px 50px;
 }
 
 .header .searchbar {
     padding-right: 100px;
+}
+
+label {
+    position: relative;
+}
+
+.header label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/622/622669.png');
+    background-size: cover;
+    left: 18px;
 }
 
 

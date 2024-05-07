@@ -9,16 +9,19 @@ const Buttons = ({ setSelectedOption }) => {
     <div className="Buttons">
       <div>
         <p>Filter by</p>
-        <select className="filterSelect" onChange={handleChange}>
-            <option value="">All</option>
-          <option value="name">Name</option>
-          <option value="dateAdded">Date added</option>
-          <option value="releaseDate">Release date</option>
+          <select className="filterSelect" onChange={handleChange}>
+              <option value="all">...</option>
 
-        </select>
+              <option value="all">All</option>
+
+              <option value="name">Name</option>
+              <option value="dateAdded">Date added</option>
+              <option value="releaseDate">Release date</option>
+
+          </select>
       </div>
 
-      <div>
+        <div>
         <p>Platform</p>
         <select className="platformSelect">
           <option value="xbox">Xbox</option>
