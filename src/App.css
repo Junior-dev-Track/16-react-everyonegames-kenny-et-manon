@@ -58,6 +58,8 @@ ul, ol {
 .Buttons p {
     text-transform: uppercase;
     font-weight: 700px;
+    margin-left: 0px;
+    margin-bottom: 5px;
 }
 
 
