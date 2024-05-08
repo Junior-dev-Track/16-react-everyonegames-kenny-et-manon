@@ -50,6 +50,12 @@ useEffect(() => {
             // Add the names of the new games to the displayedGameNames set
             newGames.forEach(game => displayedGameNames.add(game.name));
 
+            // Map over the games and add a new property, platformNames, which is an array of platform names
+            newGames = newGames.map(game => ({
+                ...game,
+                platformNames: game.platforms.map(platform => platform.platform.name),
+            }));
+
             setGames(prevGames => [...prevGames, ...newGames]);
         } catch (error) {
             console.error('Error fetching games:', error);
@@ -86,8 +92,14 @@ useEffect(() => {
                     {games.map((game) => (
                         game.background_image && (
                             <div key={game.id} className='contenu'>
-                                <img src={game.background_image} alt={game.name} className='images'  />
+                                <img src={game.background_image} alt={game.name} className='images'/>
                                 <p>{game.name}</p>
+
+                                <div className='platforms'>
+                                    {game.platformNames.map(platformName => (
+                                        <p key={platformName}>{platformName}</p>
+                                    ))}
+                                </div>
                             </div>
                         )
                     ))}
