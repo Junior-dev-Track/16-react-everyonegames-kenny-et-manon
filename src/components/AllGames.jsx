@@ -18,47 +18,50 @@ const AllGames = ({ selectedOption }) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    useEffect(() => {
-        const fetchGames = async () => {
-            setIsLoading(true);
+    const [displayedGameNames, setDisplayedGameNames] = useState(new Set());
 
-            let ordering;
-            switch (selectedOption) {
-                case 'dateAdded':
-                    ordering = 'added';
-                    break;
-                case 'releaseDate':
-                    ordering = 'released';
-                    break;
-                case 'name':
-                    ordering = 'name';
-                    break;
-                case '':
-                    ordering = '';
-            }
+useEffect(() => {
+    const fetchGames = async () => {
+        setIsLoading(true);
 
-            try {
-                const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
+        let ordering;
+        switch (selectedOption) {
+            case 'dateAdded':
+                ordering = 'added';
+                break;
+            case 'releaseDate':
+                ordering = 'released';
+                break;
+            case 'name':
+                ordering = 'name';
+                break;
+            case '':
+                ordering = '';
+        }
 
-                let newGames = response.data.results;
+        try {
+            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
 
-                // Filter out games without a background image and games that have already been displayed
-                newGames = newGames.filter(game => game.background_image && !displayedGameIds.has(game.id));
+            let newGames = response.data.results;
 
-                // Add the ids of the new games to the Set
-                newGames.forEach(game => displayedGameIds.add(game.id));
+            // Filter out games without a background image and games that have already been displayed
+            newGames = newGames.filter(game => game.background_image && !displayedGameNames.has(game.name));
 
-                // Append the new games to the existing games
-                setGames(prevGames => [...prevGames, ...newGames]);
-            } catch (error) {
-                console.error('Error fetching games:', error);
-            }
+            // Add the names of the new games to the displayedGameNames set
+            newGames.forEach(game => displayedGameNames.add(game.name));
 
-            setIsLoading(false);
-        };
+            setGames(prevGames => [...prevGames, ...newGames]);
+        } catch (error) {
+            console.error('Error fetching games:', error);
+        }
 
-        fetchGames();
-    }, [page, selectedOption, displayedGameIds]);
+        setIsLoading(false);
+    };
+
+    fetchGames();
+}, [page, selectedOption, displayedGameNames]);
+
+
 
     const [prevSelectedOption, setPrevSelectedOption] = useState(selectedOption);
 
@@ -70,6 +73,9 @@ const AllGames = ({ selectedOption }) => {
             setPrevSelectedOption(selectedOption);
         }
     }, [selectedOption, prevSelectedOption]);
+
+
+
 
     return (
         <div>
