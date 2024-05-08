@@ -87,16 +87,16 @@ useEffect(() => {
     }, [selectedOption, prevSelectedOption]);
 
     const handleInputChange = (e) => {
-        const value = e.target.value;
-        setSearchTerm(value);
+    const value = e.target.value;
+    setSearchTerm(value);
 
-        if (value === '') {
-            setSuggestions([]);
-        } else {
-            const newSuggestions = games.filter(game => game.name.toLowerCase().startsWith(value.toLowerCase()));
-            setSuggestions(newSuggestions);
-        }
-    };
+    if (value === '') {
+        setSuggestions([]);
+    } else {
+        const newSuggestions = games.filter(game => game.name.toLowerCase().startsWith(value.toLowerCase()));
+        setSuggestions(newSuggestions);
+    }
+};
 
     const handleSuggestionClick = (gameName) => {
         setSearchTerm(gameName);
@@ -105,19 +105,21 @@ useEffect(() => {
 
     return (
         <div>
-            <input
+            <label>
+               <input
                 type="text"
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={handleInputChange}
             />
+            </label>
             <div className='suggestions'>
-                {suggestions.map((game) => (
-                    <div key={game.id} onClick={() => handleSuggestionClick(game.name)}>
-                        {game.name}
-                    </div>
-                ))}
-            </div>
+    {suggestions.map((game) => (
+        <div key={game.id} onClick={() => handleSuggestionClick(game.name)}>
+            {game.name}
+        </div>
+    ))}
+</div>
             {isLoading ? (
                 <div className='loading'></div>
             ) : (
