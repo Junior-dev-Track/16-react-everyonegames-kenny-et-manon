@@ -9,6 +9,10 @@ const AllGames = ({ selectedOption }) => {
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const [displayedGameIds, setDisplayedGameIds] = useState(new Set()); // New state variable
+    const [searchTerm, setSearchTerm] = useState('');
+    const [suggestions, setSuggestions] = useState([]); // New state variable for the autocomplete suggestions
+
+
 
     const handleScroll = () => {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
@@ -82,13 +86,43 @@ useEffect(() => {
         }
     }, [selectedOption, prevSelectedOption]);
 
+    const handleInputChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+
+        if (value === '') {
+            setSuggestions([]);
+        } else {
+            const newSuggestions = games.filter(game => game.name.toLowerCase().startsWith(value.toLowerCase()));
+            setSuggestions(newSuggestions);
+        }
+    };
+
+    const handleSuggestionClick = (gameName) => {
+        setSearchTerm(gameName);
+        setSuggestions([]);
+    };
+
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={handleInputChange}
+            />
+            <div className='suggestions'>
+                {suggestions.map((game) => (
+                    <div key={game.id} onClick={() => handleSuggestionClick(game.name)}>
+                        {game.name}
+                    </div>
+                ))}
+            </div>
             {isLoading ? (
                 <div className='loading'></div>
             ) : (
                 <div className='wrap'>
-                    {games.map((game) => (
+                    {games.filter(game => game.name.toLowerCase().includes(searchTerm.toLowerCase())).map((game) => (
                         game.background_image && (
                             <div key={game.id} className='contenu'>
                                 <div className='platforms'>

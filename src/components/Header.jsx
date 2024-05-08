@@ -21,11 +21,11 @@ const Header = ({ setSelectedOption }) => {
           </nav>
         </div>
 
-        <div className="searchbar">
-          <label>
-            <input type="text" placeholder= "Search..."/>
-          </label>
-        </div>
+        {/*<div className="searchbar">*/}
+        {/*  <label>*/}
+        {/*    /!*<input type="text" placeholder= "Search..."/>*!/*/}
+        {/*  </label>*/}
+        {/*</div>*/}
       </div>
   );
 };
