@@ -3,6 +3,8 @@ import axios from 'axios';
 import '../AllGames.css';
 
 const AllGames = ({ selectedOption }) => {
+    const apiKey= import.meta.env.VITE_API_KEY
+
     const [games, setGames] = useState([]);
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +42,7 @@ useEffect(() => {
         }
 
         try {
-            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=8c5e4c7f795649dfaf47cb2454e4bf18`);
+            const response = await axios.get(`https://api.rawg.io/api/games?page=${page}&page_size=20&ordering=${ordering}&key=${apiKey}`);
 
             let newGames = response.data.results;
 
@@ -80,9 +82,6 @@ useEffect(() => {
         }
     }, [selectedOption, prevSelectedOption]);
 
-
-
-
     return (
         <div>
             {isLoading ? (
@@ -92,14 +91,14 @@ useEffect(() => {
                     {games.map((game) => (
                         game.background_image && (
                             <div key={game.id} className='contenu'>
-                                <img src={game.background_image} alt={game.name} className='images'/>
-                                <p>{game.name}</p>
-
                                 <div className='platforms'>
                                     {game.platformNames.map(platformName => (
                                         <p key={platformName}>{platformName}</p>
                                     ))}
                                 </div>
+                                <img src={game.background_image} alt={game.name} className='images'/>
+                                <p>{game.name}</p>
+
                             </div>
                         )
                     ))}

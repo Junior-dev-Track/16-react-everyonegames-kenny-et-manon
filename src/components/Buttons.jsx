@@ -23,12 +23,13 @@ const Buttons = ({ setSelectedOption }) => {
 
         <div>
         <p>Platform</p>
-        <select className="platformSelect">
-          <option value="xbox">Xbox</option>
-          <option value="playstation">Playstation</option>
-          <option value="pc">PC</option>
-        </select>
-      </div>
+            <select className="platformSelect">
+                <option value="">In progress</option>
+                <option value="xbox">Xbox</option>
+                <option value="playstation">Playstation</option>
+                <option value="pc">PC</option>
+            </select>
+        </div>
     </div>
   );
 };
