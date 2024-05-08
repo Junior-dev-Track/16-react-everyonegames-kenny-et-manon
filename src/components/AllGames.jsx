@@ -92,7 +92,7 @@ useEffect(() => {
                         game.background_image && (
                             <div key={game.id} className='contenu'>
                                 <div className='platforms'>
-                                    {game.platformNames.map(platformName => (
+                                    {game.platformNames.slice(0,3).map(platformName => (
                                         <p key={platformName}>{platformName}</p>
                                     ))}
                                 </div>
